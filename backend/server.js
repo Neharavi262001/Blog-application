@@ -7,6 +7,7 @@ import { errorHandler, notFound } from './middlewares/errorHandler.js'
 import routes from './routes/userRoutes.js'
 
 
+
 dotenv.config()
 const app =express()
 const PORT =process.env.PORT || PORT
@@ -18,6 +19,9 @@ app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
 
 app.use('/api/user',routes)
+
+
+
 
 app.use(notFound)
 app.use(errorHandler)
