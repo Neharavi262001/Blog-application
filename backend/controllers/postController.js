@@ -4,7 +4,10 @@ import Post from '../models/postModel.js'
 //get all posts
 export const getPosts=asyncHandler(async(req,res)=>{
     try {
-        const posts = await Post.find().sort({createdAt:-1}) 
+        const posts = await Post.find().sort({createdAt:-1}).populate({
+            path: 'user',
+            select: 'name',
+        }) 
         res.status(200).json(posts) 
     } catch (error) {
         res.status(500).json({error:"Internal Server error"})
@@ -15,7 +18,10 @@ export const getPosts=asyncHandler(async(req,res)=>{
 export const getSinglePost= async(req,res)=>{
     const {id}=req.params
     try {
-        const post = await Post.findById(id)
+        const post = await Post.findById(id).populate({
+            path: 'user',
+            select: 'name',
+        }) 
 
         if(!post){
             res.status(404).json('Post not found')
@@ -41,11 +47,8 @@ export const newPost=asyncHandler(async(req,res)=>{
             title,
             description,
             user:req.user.id,
-            username:req.user.username,
        }) 
-       console.log(post)
-       console.log(req.user.name)
-       res.status(200).json({post, username:req.user.name})
+       res.status(200).json(post)
     } catch (error) {
         console.log(error)
         res.status(500).json({error:"Internal Server error"}) 

@@ -14,7 +14,8 @@ const Schema = mongoose.Schema
     description:{
         type:String,
         required:true
-    }
+    },
+   
 },{timestamps:true})
 
 export default mongoose.model('Post',postSchema)
