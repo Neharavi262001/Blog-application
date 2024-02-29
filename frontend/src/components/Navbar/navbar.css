@@ -8,14 +8,28 @@
 }
 
 .navbar a{
-    color: black;
+    color: white;
 }
 .nav-item {
     text-decoration: none;
-    padding: 5px;
+   margin: 0 10px;
     font-size: large;
 }
   
 .nav-item:hover {
     text-decoration: underline;
+}
+.nav-links{
+    cursor: pointer;
+}
+.nav-links button{
+    font-size: medium;
+    padding: 5px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    color: rgb(238, 109, 29);
+    font-weight: bolder;
+    margin: 0 10px;
+    cursor: pointer;
 }

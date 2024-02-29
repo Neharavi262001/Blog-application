@@ -33,10 +33,10 @@ export const register = asyncHandler(async (req, res) => {
         throw new Error('Email already in use')
     }
 
-    if (!name || !email || !password){
-        res.status(400)
-        throw new Error('All fields must be filled')  
-     }
+    // if (!name || !email || !password){
+    //     res.status(400)
+    //     throw new Error('All fields must be filled')  
+    //  }
 
     // Create user
     const user = await User.create({ name, email, password });

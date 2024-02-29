@@ -25,6 +25,9 @@ const Register = () => {
    
   const handleSubmit=async(e)=>{
     e.preventDefault()
+    if(!name || !email || !password){
+      toast.error('All fields must be filled')
+    }
     if (password !== confirmPassword){
         toast.error('Passwords donot match')
     }else{
@@ -47,7 +50,7 @@ const Register = () => {
     <div className='form-container'>
     <h2>Register</h2>
    
-    <form  className="submit-form" onClick={handleSubmit}>
+    <form  className="submit-form" onSubmit={handleSubmit}>
     <input
       className='form-input' 
         type="text" 

@@ -2,6 +2,7 @@ import React from 'react'
 import './post.css'
 
 const Post = () => {
+  
   return (
     <div className='form-container'>
       <h2>Create new Post</h2>
