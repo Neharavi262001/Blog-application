@@ -16,6 +16,7 @@ passwordSchema
 // REGISTER    
 export const register = asyncHandler(async (req, res) => {
     const { name, email, password } = req.body;
+    
      if (!name || !email || !password){
         res.status(400)
         throw new Error('All fields must be filled')  
@@ -23,17 +24,16 @@ export const register = asyncHandler(async (req, res) => {
 
     // Strong password validation
     if (!passwordSchema.validate(password)) {
-        res.status(400).json({
-            error: 'Password must be at least 8 characters long and include uppercase, lowercase, and digits.',
-        });
-        return;
+        res.status(400)
+        throw new Error ('Password must be at least 8 characters long and include uppercase, lowercase, and digits.')
+        
     }
 
     // Check if user already exists
     const userExists = await User.findOne({ email });
     if (userExists) {
-        res.status(400).json({ error: 'Email already in use' });
-        return;
+        res.status(400)
+        throw new Error('Email already in use')
     }
 
     // Create user
@@ -49,7 +49,8 @@ export const register = asyncHandler(async (req, res) => {
             email: user.email,
         });
     } else {
-        res.status(400).json({ error: 'Invalid credentials' });
+        res.status(500)
+        throw new Error('Internal server Error')
     }
 });
 
