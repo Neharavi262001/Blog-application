@@ -1,5 +1,7 @@
 import React from 'react'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css'
 import Home from './pages/Home/Home'
 import Login from './pages/Login/Login'
@@ -25,9 +27,11 @@ const App = () => {
             <Route path='/post' element={<Post/>}/>
             <Route path='/post/:id' element={<BlogPost/>}/>
           </Route>
-          
+
         </Routes>
+        
       </Router>
+      <ToastContainer/>
       
     </div>
   )

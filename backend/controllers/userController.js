@@ -16,6 +16,10 @@ passwordSchema
 // REGISTER    
 export const register = asyncHandler(async (req, res) => {
     const { name, email, password } = req.body;
+     if (!name || !email || !password){
+        res.status(400)
+        throw new Error('All fields must be filled')  
+     }
 
     // Strong password validation
     if (!passwordSchema.validate(password)) {
