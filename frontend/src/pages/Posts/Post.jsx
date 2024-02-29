@@ -3,12 +3,12 @@ import './post.css'
 
 const Post = () => {
   return (
-    <div className='add-post'>
+    <div className='form-container'>
       <h2>Create new Post</h2>
      
-      <form  className="post-form">
+      <form  className="submit-form">
         <input
-        className='post-input' 
+        className='form-input' 
           type="text" 
           name="" 
           id="" 
@@ -17,17 +17,12 @@ const Post = () => {
           />
 
           <textarea 
-          className='post-input'
-            placeholder='Content'
-            
+          className='form-input'
+            placeholder='Content' 
           />
 
           <button className='submit-btn'>Post</button>
       </form>
-
-  
-     
-
     </div>
   )
 }

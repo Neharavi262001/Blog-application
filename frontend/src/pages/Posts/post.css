@@ -1,4 +1,4 @@
-.add-post{
+.form-container{
     margin: 3rem;
     display: flex;
     flex-direction: column;
@@ -6,8 +6,9 @@
     align-items: center;
 }
 
-.post-input{
-    width: 100%;
+.form-input{
+    width: 90%;
+    margin-top: 10px;
     margin-bottom: 10px;
     padding: 8px;
     font-size: 16px;
@@ -23,6 +24,7 @@ textarea{
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    margin-top: 10px;
     
 }
 .submit-btn:hover{
