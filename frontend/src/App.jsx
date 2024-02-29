@@ -8,6 +8,7 @@ import Profile from './pages/Profile/Profile'
 import Navbar from './components/Navbar/Navbar'
 import Post from './pages/Posts/Post'
 import BlogPost from './pages/BlogPost/BlogPost'
+import AuthRoutes from './authRoutes/authRoutes'
 
 const App = () => {
   return (
@@ -18,10 +19,13 @@ const App = () => {
           <Route path='/' element={<Home/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register/>}/>
-          <Route path='/profile' element={<Profile/>}/>
-          <Route path='/post' element={<Post/>}/>
-          <Route path='/post/:id' element={<BlogPost/>}/>
 
+          <Route path='' element={<AuthRoutes/>}>
+            <Route path='/profile' element={<Profile/>}/>
+            <Route path='/post' element={<Post/>}/>
+            <Route path='/post/:id' element={<BlogPost/>}/>
+          </Route>
+          
         </Routes>
       </Router>
       
