@@ -1,0 +1,15 @@
+.blog-post{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+.post-details{
+    display: flex;
+    margin: 1rem;
+    font-size:medium;
+    color: rgb(107, 104, 104);
+   
+}
+.post-details p{
+    margin: 0 20px;
+}

@@ -7,6 +7,7 @@ import Register from './pages/Register/Register'
 import Profile from './pages/Profile/Profile'
 import Navbar from './components/Navbar/Navbar'
 import Post from './pages/Posts/Post'
+import BlogPost from './pages/BlogPost/BlogPost'
 
 const App = () => {
   return (
@@ -19,6 +20,8 @@ const App = () => {
           <Route path='/register' element={<Register/>}/>
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/post' element={<Post/>}/>
+          <Route path='/post/:id' element={<BlogPost/>}/>
+
         </Routes>
       </Router>
       
