@@ -1,0 +1,21 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(242, 116, 38);
+    padding: 20px 40px;
+
+}
+
+.navbar a{
+    color: black;
+}
+.nav-item {
+    text-decoration: none;
+    padding: 5px;
+    font-size: large;
+}
+  
+.nav-item:hover {
+    text-decoration: underline;
+}
