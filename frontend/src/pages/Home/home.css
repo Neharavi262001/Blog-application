@@ -1,5 +1,5 @@
 /* Home.css */
-.home {
+.post-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Adjust as needed */
     gap: 20px;

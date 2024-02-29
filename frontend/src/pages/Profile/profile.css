@@ -1,0 +1,8 @@
+.profile-container{
+    margin: 3rem;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    width: 300px;
+    align-items: center;
+}
