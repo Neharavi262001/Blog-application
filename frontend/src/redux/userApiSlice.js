@@ -32,10 +32,20 @@ export const userApiSlice=apiSlice.injectEndpoints({
             query:()=>({
                 url:`${USERS_BACKEND_URL}`,
                 method: 'GET',
-            })
+            }),
+            providesTags:['Posts']
+        }),
+        createPost:builder.mutation({
+            query:(newPost)=>({
+                url:`${USERS_BACKEND_URL}/post` ,
+                method:'POST',
+                body:newPost
+
+            }),
+            invalidatesTags:['Posts']
         })
     })
 })
 
 
-export const {useLoginMutation,useRegisterMutation,useLogoutMutation,useGetAllPostsQuery}=userApiSlice
+export const {useLoginMutation,useRegisterMutation,useLogoutMutation,useGetAllPostsQuery,useCreatePostMutation}=userApiSlice

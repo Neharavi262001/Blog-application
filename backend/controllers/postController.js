@@ -38,8 +38,8 @@ export const getSinglePost= async(req,res)=>{
 export const newPost=asyncHandler(async(req,res)=>{
     const {title,description}=req.body
     if (!title || !description){
-        res.status(400).json({error:"Title and description required"})
-        return
+        res.status(400)
+        throw new Error("Title and description required")
     }
 
     try {
