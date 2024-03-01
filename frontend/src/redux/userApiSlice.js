@@ -43,9 +43,22 @@ export const userApiSlice=apiSlice.injectEndpoints({
 
             }),
             invalidatesTags:['Posts']
-        })
+        }),
+        getUserPosts:builder.query({
+            query:()=>({
+                url:`${USERS_BACKEND_URL}/post`,
+                method: 'GET',
+            }),
+            invalidatesTags:['Posts']
+        }),
     })
 })
 
 
-export const {useLoginMutation,useRegisterMutation,useLogoutMutation,useGetAllPostsQuery,useCreatePostMutation}=userApiSlice
+export const {useLoginMutation,
+    useRegisterMutation,
+    useLogoutMutation,
+    useGetAllPostsQuery,
+    useCreatePostMutation,
+    useGetUserPostsQuery
+}=userApiSlice

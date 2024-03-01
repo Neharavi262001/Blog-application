@@ -8,6 +8,7 @@
   }
   
   .posts {
+    height: 300px;
     margin: 15px;
     padding: 20px;
     border: 1px solid #e2a088;
@@ -23,6 +24,11 @@
   
   .posts h2 {
     margin-bottom: 10px;
+  }
+  .posts button{
+    color: white;
+    padding: 5px;
+    font-size: small;
   }
   
   .author-date {

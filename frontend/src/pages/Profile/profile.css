@@ -1,8 +1,64 @@
-.profile-container{
-    margin: 3rem;
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid black;
-    width: 300px;
-    align-items: center;
+.profile-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
+.profile-container {
+  width: 80%;
+  margin: auto;
+}
+.profile-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 2px 8px 10px rgba(6, 4, 4, 0.1);
+  padding: 20px;
+  margin: 2rem 10rem;
+  display: flex;
+  width: 30rem;
+ 
+}
+.user-image{
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+.user-details {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.options{
+  display: flex;
+
+}
+.options p {
+  margin: 10px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: rgb(238, 88, 34);
+  color: white;
+}
+.options p:hover{
+  background-color: rgb(199, 61, 11);
+}
+.post-actions button {
+  margin: 5px;
+  padding: 6px ;
+  color: #fff;
+  cursor: pointer;
+  background-color: rgb(238, 88, 34);
+  border: none;
+  border-radius: 2px;
+}
+.post-tile{
+  display: flex;
+}
+.post-actions{
+  display: flex;
+  flex-direction: column;
+}
+

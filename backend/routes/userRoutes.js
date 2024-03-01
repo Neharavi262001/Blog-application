@@ -5,22 +5,19 @@ import { deletePost, editPost, getPosts, getSinglePost, getUserPosts, newPost } 
 
 
 const router=express.Router()
-router.post('/register',register)
-router.post('/login',login)
-router.post('/logout',protectedRoutes,logout)
+router.post('/register', register);
+router.post('/login', login);
+router.post('/logout', protectedRoutes, logout);
 
+router.get('/', getPosts);
+router.get('/post', protectedRoutes, getUserPosts);
+router.get('/:id', getSinglePost);
 
-router.get('/',getPosts)
-router.get('/:id',getSinglePost)
+router.post('/post', protectedRoutes, newPost);
+router.delete('/post/:id', protectedRoutes, deletePost);
+router.put('/post/:id', protectedRoutes, editPost);
 
-router.get('/post',protectedRoutes,getUserPosts)
-router.post('/post',protectedRoutes,newPost)
-router.delete('/post/:id',protectedRoutes,deletePost)
-router.put('/post/:id',protectedRoutes,editPost)
-
-
-router.get('/hi',protectedRoutes,(req,res)=>{
-    res.json('hello')
-})
-
+router.get('/hi', protectedRoutes, (req, res) => {
+  res.json('hello');
+});
 export default router

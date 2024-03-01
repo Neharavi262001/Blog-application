@@ -7,7 +7,12 @@ import dayjs from 'dayjs'
 const PostList = () => {
   const navigate=useNavigate()
   const {data:getAllPosts,error,isLoading}=useGetAllPostsQuery()
-  console.log(getAllPosts)
+  const truncateDescription = (description, maxLength) => {
+    if (description.length <= maxLength) {
+      return description;
+    }
+    return description.substring(0, maxLength) + '...';
+  };
   
   return (
     <div className='post-list'>
@@ -17,9 +22,11 @@ const PostList = () => {
             <PostTile
               key={item._id}
               title={item.title}
-              content={item.description}
+              content={truncateDescription(item.description, 400)}
               author={item.user.name}
               date={dayjs(item.createdAt).format('DD-MM-YYYY')}
+              onClick={() => navigate(`/post/${item._id}`)} 
+              buttonText="Read More"
             />
       ))}
     </div>

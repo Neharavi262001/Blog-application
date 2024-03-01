@@ -97,12 +97,14 @@ export const editPost=asyncHandler(async(req,res)=>{
 //get user's posts
 export const getUserPosts=asyncHandler(async(req,res)=>{
     try {
-        const posts = await Post.find(req.user._id).sort({createdAt:-1}).populate({
+        const posts = await Post.find({ user: req.user._id }).sort({createdAt:-1}).populate({
             path: 'user',
             select: 'name',
         }) 
+        
         res.status(200).json(posts) 
     } catch (error) {
+      
         res.status(500).json({error:"Internal Server error"})
     }
 })
