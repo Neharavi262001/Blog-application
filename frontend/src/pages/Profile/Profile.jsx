@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './profile.css';
 import PostTile from '../../components/PostTile/PostTile';
-import { useGetUserPostsQuery } from '../../redux/userApiSlice';
+import { useDeletePostMutation, useEditPostMutation, useGetUserPostsQuery } from '../../redux/userApiSlice';
 import dayjs from 'dayjs';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -10,13 +10,23 @@ import userImage from '../../images/user.png'
 
 const Profile = () => {
   const { data: getUserPosts, error, isLoading } = useGetUserPostsQuery();
+  const [deletePost]=useDeletePostMutation()
   const { userDetails } = useSelector((state) => state.auth);
+
   const truncateDescription = (description, maxLength) => {
     if (description.length <= maxLength) {
       return description;
     }
     return description.substring(0, maxLength) + '...';
   };
+
+  const handleDeletePost=async(postId)=>{
+    try {
+      await deletePost(postId).unwrap()
+    } catch (error) {
+      console.error('Error deleting post:', error);
+    }
+  }
 
   const navigate = useNavigate();
   return (
@@ -60,7 +70,7 @@ const Profile = () => {
               />
               <div className="post-actions">
                 <button><FaEdit/></button>
-                <button><FaTrashAlt/></button>
+                <button onClick={() => handleDeletePost(item._id)}><FaTrashAlt/></button>
               </div>
              
             </div>

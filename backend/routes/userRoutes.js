@@ -10,10 +10,12 @@ router.post('/login', login);
 router.post('/logout', protectedRoutes, logout);
 
 router.get('/', getPosts);
+router.get('/post/:id', getSinglePost);
 router.get('/post', protectedRoutes, getUserPosts);
-router.get('/:id', getSinglePost);
+
 
 router.post('/post', protectedRoutes, newPost);
+
 router.delete('/post/:id', protectedRoutes, deletePost);
 router.put('/post/:id', protectedRoutes, editPost);
 

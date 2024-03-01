@@ -35,6 +35,13 @@ export const userApiSlice=apiSlice.injectEndpoints({
             }),
             providesTags:['Posts']
         }),
+        getUserPosts:builder.query({
+            query:()=>({
+                url:`${USERS_BACKEND_URL}/post`,
+                method: 'GET',
+            }),
+            providesTags:['UserPosts']
+        }),
         createPost:builder.mutation({
             query:(newPost)=>({
                 url:`${USERS_BACKEND_URL}/post` ,
@@ -42,14 +49,30 @@ export const userApiSlice=apiSlice.injectEndpoints({
                 body:newPost
 
             }),
-            invalidatesTags:['Posts']
+            invalidatesTags:['Posts','UserPosts']
         }),
-        getUserPosts:builder.query({
-            query:()=>({
-                url:`${USERS_BACKEND_URL}/post`,
+     
+        getSinglePost:builder.query({
+            query:(postId)=>({
+                url:`${USERS_BACKEND_URL}/post/${postId}`,
                 method: 'GET',
             }),
             invalidatesTags:['Posts']
+        }),
+        editPost:builder.mutation({
+            query:(newPost,postId)=>({
+                url:`${USERS_BACKEND_URL}/post/${postId}` ,
+                method:'PUT',
+                body:newPost
+            }),
+            invalidatesTags:['Posts','UserPosts']
+        }),
+        deletePost:builder.mutation({
+            query:(postId)=>({
+                url:`${USERS_BACKEND_URL}/post/${postId}` ,
+                method:'DELETE',
+            }),
+            invalidatesTags:['Posts','UserPosts']
         }),
     })
 })
@@ -60,5 +83,9 @@ export const {useLoginMutation,
     useLogoutMutation,
     useGetAllPostsQuery,
     useCreatePostMutation,
-    useGetUserPostsQuery
+    useDeletePostMutation,
+    useEditPostMutation,
+    useGetUserPostsQuery,
+    useGetSinglePostQuery,
+    
 }=userApiSlice
