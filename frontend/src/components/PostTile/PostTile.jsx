@@ -3,7 +3,7 @@ import React from 'react'
 const PostTile = ({ title, content, author, date,onClick,buttonText }) => {
   return (
     <div className="posts">
-      <h2>{title}</h2>
+      <h3>{title}</h3>
       <div className="author-date">
         <p>{author}</p>
         <p>{date}</p>

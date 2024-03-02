@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
 import './profile.css';
 import PostTile from '../../components/PostTile/PostTile';
-import { useDeletePostMutation, useEditPostMutation, useGetUserPostsQuery } from '../../redux/userApiSlice';
+import { useDeletePostMutation, useGetUserPostsQuery, useLogoutMutation } from '../../redux/userApiSlice';
 import dayjs from 'dayjs';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { FaEdit, FaEnvelope, FaPen, FaSignOutAlt,  FaTrashAlt, FaUser, FaUserCircle, } from 'react-icons/fa';
 import userImage from '../../images/user.png'
+import { toast } from 'react-toastify';
+import { clearCredentials } from '../../redux/authSlice';
 
 const Profile = () => {
   const { data: getUserPosts, error, isLoading } = useGetUserPostsQuery();
   const [deletePost]=useDeletePostMutation()
+  const [logout]=useLogoutMutation()
+
+  const navigate = useNavigate();
+  const dispatch =useDispatch()
+
+
   const { userDetails } = useSelector((state) => state.auth);
 
   const truncateDescription = (description, maxLength) => {
@@ -23,15 +31,27 @@ const Profile = () => {
   const handleDeletePost=async(postId)=>{
     try {
       await deletePost(postId).unwrap()
+      toast.success('Post deleted successfully')
     } catch (error) {
       console.error('Error deleting post:', error);
     }
   }
 
-  const navigate = useNavigate();
+ 
   const handleEditPost = (postId) => {
     navigate(`/edit/${postId}`); 
   };
+
+  const handleLogout=async()=>{
+    try {
+      await logout().unwrap()
+      dispatch(clearCredentials())
+      toast.success('Logged out ')
+      navigate('/login')
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div className='profile-page'>
       <div className="profile-container">
@@ -46,8 +66,8 @@ const Profile = () => {
             <p><FaEnvelope/> {userDetails.email}</p>
           </div>
           <div className="options">
-            <p><FaPen/> Edit Profile</p>
-            <p> <FaSignOutAlt/> Logout</p>
+           
+            <p onClick={handleLogout}> <FaSignOutAlt/> Logout</p>
           </div>
           </div>
        

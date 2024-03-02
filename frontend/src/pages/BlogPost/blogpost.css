@@ -1,7 +1,7 @@
 .blog-post{
     display: flex;
     flex-direction: column;
-    margin: 2rem;
+    margin: 4rem;
 }
 .post-details{
     display: flex;
