@@ -13,7 +13,7 @@ const app =express()
 const PORT =process.env.PORT || PORT
 db()
 const corsOptions={
-    origin: 'http://localhost:5173', 
+    origin: 'https://bloggle-topaz.vercel.app', 
     credentials: true 
 }
 app.use(cors(corsOptions))
