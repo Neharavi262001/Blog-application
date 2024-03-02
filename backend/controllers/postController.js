@@ -76,21 +76,25 @@ export const deletePost=asyncHandler(async(req,res)=>{
 export const editPost=asyncHandler(async(req,res)=>{
     const { id } = req.params;
     const { title, description } = req.body;
-    if (!title || !description){
-        res.status(400).json({error:"Title and description required"})
-        return
-    }
+    // if (!title || !description){
+    //     res.status(400)
+    //     throw new Error("Title and description required")
+        
+    // }
     try {
-        const post = await Post.findOneAndUpdate({ _id: id, user: req.user.id }, { title, description,}, { new: true })
+        //const post = await Post.findOneAndUpdate({ _id: id, user: req.user.id }, { title, description,}, { new: true })
+        const post =await Post.findByIdAndUpdate(id,{title,description},{new:true})
         if (!post){
-            res.status(404).json({error:"Post not found !"})
-            return
+            res.status(404)
+            throw new Error("Post not found !")
+            
         }
-        res.status(200).json({post,userName: req.user.name})
+        res.status(200).json(post)
         
     } catch (error) {
         console.log(error.message)
-        res.status(500).json({error:"Internal Server error"})  
+        res.status(500)
+        throw new Error("Internal server error")
     }
 })
 

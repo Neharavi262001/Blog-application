@@ -35,6 +35,7 @@ export const userApiSlice=apiSlice.injectEndpoints({
             }),
             providesTags:['Posts']
         }),
+
         getUserPosts:builder.query({
             query:()=>({
                 url:`${USERS_BACKEND_URL}/post`,
@@ -57,13 +58,14 @@ export const userApiSlice=apiSlice.injectEndpoints({
                 url:`${USERS_BACKEND_URL}/post/${postId}`,
                 method: 'GET',
             }),
-            invalidatesTags:['Posts']
+            providesTags:['Posts','UserPosts']
         }),
+
         editPost:builder.mutation({
-            query:(newPost,postId)=>({
+            query:({postId,editedPost})=>({
                 url:`${USERS_BACKEND_URL}/post/${postId}` ,
                 method:'PUT',
-                body:newPost
+                body:editedPost
             }),
             invalidatesTags:['Posts','UserPosts']
         }),

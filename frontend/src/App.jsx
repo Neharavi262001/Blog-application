@@ -11,6 +11,7 @@ import Navbar from './components/Navbar/Navbar'
 import Post from './pages/Posts/Post'
 import BlogPost from './pages/BlogPost/BlogPost'
 import AuthRoutes from './authRoutes/authRoutes'
+import EditPostFrom from './pages/EditPostForm/EditPostFrom';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route path='' element={<AuthRoutes/>}>
             <Route path='/profile' element={<Profile/>}/>
             <Route path='/post' element={<Post/>}/>
+            <Route path='/edit/:id' element={<EditPostFrom/>}/>
             <Route path='/post/:id' element={<BlogPost/>}/>
           </Route>
 

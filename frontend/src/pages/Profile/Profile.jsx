@@ -29,6 +29,9 @@ const Profile = () => {
   }
 
   const navigate = useNavigate();
+  const handleEditPost = (postId) => {
+    navigate(`/edit/${postId}`); 
+  };
   return (
     <div className='profile-page'>
       <div className="profile-container">
@@ -69,7 +72,7 @@ const Profile = () => {
               buttonText="Read More"
               />
               <div className="post-actions">
-                <button><FaEdit/></button>
+                <button onClick={()=>handleEditPost(item._id)}><FaEdit/></button>
                 <button onClick={() => handleDeletePost(item._id)}><FaTrashAlt/></button>
               </div>
              
