@@ -57,6 +57,7 @@
 }
 .post-tile{
   display: flex;
+ 
 }
 .post-actions{
   display: flex;
@@ -67,7 +68,19 @@
     margin: 1rem;
     width: 20rem;
   }
+  .options p{
+    margin: 2px;
+  }
 
-  
+  .post-tile{
+    display: flex;
+    width: 370px;
+  }
+
+  .post-actions button{
+    margin: 2px;
+  }
+
+ 
 
 }
