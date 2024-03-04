@@ -38,4 +38,11 @@
     margin-bottom: 10px;
     font-size: smaller;
   }
+
+  @media only screen and (max-width: 768px) {
+    .posts{
+      width: 380px;
+    }
+  
+  }
   

@@ -33,3 +33,15 @@
     margin: 0 10px;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+      padding: 10px;
+      font-size: small;
+    }
+  
+    .navbar h2 {
+      margin-bottom: 10px;
+    }
+  
+  }

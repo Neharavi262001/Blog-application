@@ -1,21 +1,22 @@
 .profile-page {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
+  
+  padding: 1rem ;
 }
 .profile-container {
   width: 80%;
-  margin: auto;
+  
+  
 }
 .profile-card {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 2px 8px 10px rgba(6, 4, 4, 0.1);
-  padding: 20px;
-  margin: 2rem 10rem;
+  padding: 10px;
+  margin:3rem 25rem;
   display: flex;
-  width: 30rem;
+  width: 25rem;
  
 }
 .user-image{
@@ -61,4 +62,12 @@
   display: flex;
   flex-direction: column;
 }
+@media only screen and (max-width: 768px) {
+  .profile-card{
+    margin: 1rem;
+    width: 20rem;
+  }
 
+  
+
+}
