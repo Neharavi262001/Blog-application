@@ -1,4 +1,44 @@
-/* Home.css */
+.home{
+  overflow: hidden;
+  
+}
+.landing-page{
+  background-color: rgb(236, 114, 38);
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.welcome-message{
+  color: white;
+ line-height: 40px;
+ text-align: center;
+}
+.welcome-message button{
+  background-color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: transform  0.3s ease;
+
+}
+
+.welcome-message button a{
+  color:orangered;
+}
+
+.welcome-message button:hover{
+  transform: scale(1.1);
+  background-color: #f9f8f6;
+}
+
+#all-posts{
+  margin: 1rem;
+}
 .post-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Adjust as needed */
